@@ -1,0 +1,30 @@
+---
+import Navigation from "../pages/components/Navigation.astro";
+import Footer from "../pages/components/Footer.astro";
+import Hamburger from "../pages/components/Hamburger.astro";
+import "../styles/global.css";
+
+const  pageTitle  = Astro.props;
+console.log(pageTitle);
+---
+
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle.pageTitle}</title>
+  </head>
+  <body>
+    <Hamburger />
+    <Navigation />
+
+    <h1>{pageTitle.pageTitle}</h1>
+    <slot />
+    <Footer />
+    <script>
+      import "../scripts/menu.js";
+    </script>
+  </body>
+</html>
